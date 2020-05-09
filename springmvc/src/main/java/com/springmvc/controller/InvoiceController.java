@@ -1,6 +1,7 @@
 package com.springmvc.controller;
 
 
+import com.springmvc.model.Product;
 import com.springmvc.model.PurchaseInvoice;
 import com.springmvc.model.SaleInvoice;
 import com.springmvc.service.InvoiceService;
@@ -13,11 +14,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
 @Controller
 public class InvoiceController {
 
 	@Autowired
 	private InvoiceService invoiceService;
+
+	SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+	Date date = new Date();
 
 	@RequestMapping(value = "/invoice", method = RequestMethod.GET)
 	public String sayInvoice(Model model) {
@@ -31,6 +39,14 @@ public class InvoiceController {
 
 	@RequestMapping(value = "/sale/add", method = RequestMethod.POST)
 	public String addSaleInvoice(@ModelAttribute(value = "saleObj") SaleInvoice saleInvoice) {
+		long total = 0;
+		List<Product> products = saleInvoice.getProducts();
+
+		for(Product p : products)
+			total += p.getNumber() * p.getPrice();
+		saleInvoice.setTotal(total);
+		saleInvoice.setDate(formatter.format(date));
+		saleInvoice.setEnable(true);
 		invoiceService.addSaleInvoice(saleInvoice);
 		return "redirect:/invoice";
 	}
@@ -59,6 +75,15 @@ public class InvoiceController {
 
 	@RequestMapping(value = "/purchase/add", method = RequestMethod.POST)
 	public String addPurchaseInvoice(@ModelAttribute(value = "purchaseObj") PurchaseInvoice purchaseInvoice) {
+		long total = 0;
+		List<Product> products = purchaseInvoice.getProducts();
+
+		for(Product p : products)
+			total += p.getNumber() * p.getPrice();
+		purchaseInvoice.setTotal(total);
+		purchaseInvoice.setDate(formatter.format(date));
+		purchaseInvoice.setEnable(true);
+
 		invoiceService.addPurchaseInvoice(purchaseInvoice);
 		return "redirect:/invoice";
 	}

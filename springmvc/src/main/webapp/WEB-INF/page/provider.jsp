@@ -34,112 +34,65 @@
                         </div>
                     </div>
                 </div>
-                <div class="main-card mb-3 card">
-                    <div class="no-gutters row">
-                        <div class="col-md-4">
-                            <div class="widget-content">
-                                <div class="widget-content-wrapper">
-                                    <div class="widget-content-right ml-0 mr-3">
-                                        <div class="widget-numbers text-success">1896</div>
-                                    </div>
-                                    <div class="widget-content-left">
-                                        <div class="widget-heading">Total Orders</div>
-                                        <div class="widget-subheading">Last year expenses</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="widget-content">
-                                <div class="widget-content-wrapper">
-                                    <div class="widget-content-right ml-0 mr-3">
-                                        <div class="widget-numbers text-warning">$ 14M</div>
-                                    </div>
-                                    <div class="widget-content-left">
-                                        <div class="widget-heading">Products Sold</div>
-                                        <div class="widget-subheading">Total revenue streams</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="widget-content">
-                                <div class="widget-content-wrapper">
-                                    <div class="widget-content-right ml-0 mr-3">
-                                        <div class="widget-numbers text-danger">45.9%</div>
-                                    </div>
-                                    <div class="widget-content-left">
-                                        <div class="widget-heading">Followers</div>
-                                        <div class="widget-subheading">People Interested</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="divider mt-0" style="margin-bottom: 30px;"></div>
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="main-card mb-3 card">
-                            <div class="card-body">
-                                <h5 class="card-title"><spring:message code="tableProvider"/></h5>
-                                <div class="row">
-                                    <div class="col-md-9">
-                                        <div class="position-relative form-group">
-                                            <button type="button" class="btn btn-success" data-toggle="modal"
-                                                    data-target=".bd-example-modal-lg">
+                            <div class="card-header"><spring:message code="tableProvider"/>
+                                <div class="btn-actions-pane-right">
+                                    <div role="group" class="btn-group-sm btn-group">
+                                        <button type="button" class="btn btn-success" data-toggle="modal"
+                                                data-target=".bd-example-modal-lg">
                                             <span class="btn-icon-wrapper pr-2 opacity-7">
                                                     <i class="fas fa-plus"></i>
                                                 </span><spring:message code="addition"/>
-                                            </button>
-                                        </div>
+                                        </button>
                                     </div>
-                                    <div class="table-responsive">
-                                        <table class="mb-0 table table-hover">
-                                            <thead>
-                                            <tr>
-                                                <th class="text-center"><spring:message code="code"/></th>
-                                                <th class="text-center"><spring:message code="fullName"/></th>
-                                                <th class="text-center"><spring:message code="phoneNumber"/></th>
-                                                <th class="text-center"><spring:message code="email"/></th>
-                                                <th class="text-center"><spring:message code="address"/></th>
-                                                <th class="text-center"><spring:message code="function"/></th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <c:forEach items="${providers}" var="provider">
-                                                <tr >
-                                                    <th class="text-center" scope="row">${provider.providerId}</th>
-                                                    <td class="text-center">${provider.name}</td>
-                                                    <td class="text-center">${provider.phoneNumber}</td>
-                                                    <td class="text-center">${provider.email}</td>
-                                                    <td class="text-center">${provider.address}</td>
-                                                    <td class="text-center">
-                                                        <a href="provider/info/${provider.providerId}" type="submit"
-                                                           class="mb-2 mr-2 btn-transition btn btn-outline-primary">
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="mb-0 table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th class="text-center"><spring:message code="code"/></th>
+                                        <th class="text-center"><spring:message code="fullName"/></th>
+                                        <th class="text-center"><spring:message code="phoneNumber"/></th>
+                                        <th class="text-center"><spring:message code="email"/></th>
+                                        <th class="text-center"><spring:message code="address"/></th>
+                                        <th class="text-center"><spring:message code="function"/></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <c:forEach items="${providers}" var="provider">
+                                        <tr>
+                                            <th class="text-center" scope="row">${provider.providerId}</th>
+                                            <td class="text-center">${provider.name}</td>
+                                            <td class="text-center">${provider.phoneNumber}</td>
+                                            <td class="text-center">${provider.email}</td>
+                                            <td class="text-center">${provider.address}</td>
+                                            <td class="text-center">
+                                                <a href="provider/info/${provider.providerId}" type="submit"
+                                                   class="mb-2 mr-2 btn-transition btn btn-outline-primary">
                                                             <span class="btn-icon-wrapper pl-2 pr-2 opacity-7">
                                                                     <i class="fas fa-info-circle"></i>
                                                                 </span>
-                                                        </a>
-                                                        <a href="provider/update/${provider.providerId}" type="submit"
-                                                           class="mb-2 mr-2 btn-transition btn btn-outline-primary">
+                                                </a>
+                                                <a href="provider/update/${provider.providerId}" type="submit"
+                                                   class="mb-2 mr-2 btn-transition btn btn-outline-primary">
                                                             <span class="btn-icon-wrapper pl-2 pr-2 opacity-7">
                                                                     <i class="fas fa-edit"></i>
                                                                 </span>
-                                                        </a>
-                                                        <a href="provider/delete/${provider.providerId}" type="submit"
-                                                           class="mb-2 mr-2 btn-transition btn btn-outline-danger">
+                                                </a>
+                                                <a href="provider/delete/${provider.providerId}" type="submit"
+                                                   class="mb-2 mr-2 btn-transition btn btn-outline-danger">
                                                             <span class="btn-icon-wrapper pl-2 pr-2 opacity-7">
                                                                     <i class="fas fa-trash"></i>
                                                                 </span>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                            </c:forEach>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -204,8 +157,9 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><spring:message code="close"/></button>
-                    <button type="submit" class="btn btn-primary"><spring:message code="addition" /></button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><spring:message
+                            code="close"/></button>
+                    <button type="submit" class="btn btn-primary"><spring:message code="addition"/></button>
                 </div>
             </form:form>
         </div>

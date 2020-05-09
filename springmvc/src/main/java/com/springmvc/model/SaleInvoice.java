@@ -15,22 +15,38 @@ public class SaleInvoice implements Serializable {
 	@Column(name = "id")
 	private long saleInvoiceId;
 
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name = "employee")
 	private Employee employee;
 
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name = "customer")
 	private Customer customer;
 
-	@ManyToOne
-	@JoinColumn(name = "product")
-	private Product product;
+	@OneToMany
+	private List<Product> products;
 
 	private String date;
 	private String address;
 	private String note;
+	private long total;
 	private boolean enable;
+
+	public String getNote() {
+		return note;
+	}
+
+	public void setNote(String note) {
+		this.note = note;
+	}
+
+	public long getTotal() {
+		return total;
+	}
+
+	public void setTotal(long total) {
+		this.total = total;
+	}
 
 	public long getSaleInvoiceId() {
 		return saleInvoiceId;
@@ -56,12 +72,12 @@ public class SaleInvoice implements Serializable {
 		this.customer = customer;
 	}
 
-	public Product getProduct() {
-		return product;
+	public List<Product> getProducts() {
+		return products;
 	}
 
-	public void setProduct(Product product) {
-		this.product = product;
+	public void setProducts(List<Product> products) {
+		this.products = products;
 	}
 
 	public String getDate() {
@@ -78,14 +94,6 @@ public class SaleInvoice implements Serializable {
 
 	public void setAddress(String address) {
 		this.address = address;
-	}
-
-	public String getNote() {
-		return note;
-	}
-
-	public void setNote(String note) {
-		this.note = note;
 	}
 
 	public boolean isEnable() {

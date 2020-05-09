@@ -1,13 +1,10 @@
 package com.springmvc.model;
 
-import org.hibernate.annotations.Cascade;
-
 import javax.validation.constraints.NotNull;
 
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 @Entity
 @Table(name = "employee")
@@ -40,28 +37,27 @@ public class Employee implements Serializable {
 	@JoinColumn(name = "employee_job")
 	private Job job;
 
-	@OneToMany(mappedBy ="employee")
-	private List<PurchaseInvoice> purchaseInvoices;
+	@OneToOne
+	private PurchaseInvoice purchaseInvoice;
 
-	@OneToMany(mappedBy = "employee")
-	private List<SaleInvoice> saleInvoices;
+	@OneToOne(mappedBy = "employee")
+	private SaleInvoice saleInvoice;
 
-	public List<PurchaseInvoice> getPurchaseInvoices() {
-		return purchaseInvoices;
+	public PurchaseInvoice getPurchaseInvoice() {
+		return purchaseInvoice;
 	}
 
-	public void setPurchaseInvoices(List<PurchaseInvoice> purchaseInvoices) {
-		this.purchaseInvoices = purchaseInvoices;
+	public void setPurchaseInvoice(PurchaseInvoice purchaseInvoice) {
+		this.purchaseInvoice = purchaseInvoice;
 	}
 
-	public List<SaleInvoice> getSaleInvoices() {
-		return saleInvoices;
+	public SaleInvoice getSaleInvoice() {
+		return saleInvoice;
 	}
 
-	public void setSaleInvoices(List<SaleInvoice> saleInvoices) {
-		this.saleInvoices = saleInvoices;
+	public void setSaleInvoice(SaleInvoice saleInvoice) {
+		this.saleInvoice = saleInvoice;
 	}
-
 
 	public long getEmployeeId() {
 		return employeeId;

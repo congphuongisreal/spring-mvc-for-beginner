@@ -61,15 +61,9 @@
                             </a>
                         </li>
                         <li>
-                            <a href="<c:url value="/sale_invoice" /> " ${active_sale}>
-                                <i class="metismenu-icon fas fa-truck"></i>
-                                <spring:message code="saleInvoice"/>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<c:url value="/purchase_invoice" />" ${active_purchase}>
+                            <a href="<c:url value="/invoice" />" ${active_invoice}>
                                 <i class="metismenu-icon fas fa-shopcart"></i>
-                                <spring:message code="purchaseInvoice"/>
+                                <spring:message code="invoice"/>
                             </a>
                         </li>
                     </ul>
@@ -108,32 +102,17 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="<c:url value="/page_error" />" ${active_report}>
+                    <a href="<c:url value="/error" />" ${active_report}>
                         <i class="metismenu-icon fas fa-chart-bar"></i>
                         <spring:message code="report"/>
                     </a>
                 </li>
                 <li class="app-sidebar__heading"><spring:message code="administration"/></li>
                 <li>
-                    <a href="#">
-                        <i class="metismenu-icon fas fa-user"></i>
-                        <spring:message code="user"/>
-                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                    <a href="<c:url value="/user" />" ${active_user}>
+                        <i class="metismenu-icon">
+                        </i><spring:message code="user"/>
                     </a>
-                    <ul>
-                        <li>
-                            <a href="<c:url value="/user" />" ${active_user}>
-                                <i class="metismenu-icon">
-                                </i><spring:message code="user"/>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<c:url value="/role" /> "${active_role}>
-                                <i class="metismenu-icon">
-                                </i><spring:message code="role"/>
-                            </a>
-                        </li>
-                    </ul>
                 </li>
                 <li>
                     <a href="<c:url value="/error" /> ${active_settings}">
@@ -148,7 +127,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="/logout">
                         <i class="metismenu-icon fas fa-sign-out-alt">
                         </i><spring:message code="logout"/>
                     </a>

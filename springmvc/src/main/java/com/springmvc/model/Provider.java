@@ -26,7 +26,16 @@ public class Provider implements Serializable {
 	private String email;
 	private String address;
 
+	@OneToOne
+	private PurchaseInvoice purchaseInvoice;
 
+	public PurchaseInvoice getPurchaseInvoice() {
+		return purchaseInvoice;
+	}
+
+	public void setPurchaseInvoice(PurchaseInvoice purchaseInvoice) {
+		this.purchaseInvoice = purchaseInvoice;
+	}
 
 	public long getProviderId() {
 		return providerId;

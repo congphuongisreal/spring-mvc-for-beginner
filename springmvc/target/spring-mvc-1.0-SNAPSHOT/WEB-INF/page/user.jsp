@@ -34,64 +34,42 @@
                         </div>
                     </div>
                 </div>
-                <div class="main-card mb-3 card">
-                    <div class="no-gutters row">
-                        <div class="col-md-4">
-                            <div class="widget-content">
-                                <div class="widget-content-wrapper">
-                                    <div class="widget-content-right ml-0 mr-3">
-                                        <div class="widget-numbers text-success">1896</div>
+                <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
+                    <li class="nav-item">
+                        <a role="tab" class="nav-link active" id="tab-0" data-toggle="tab" href="#tab-content-0">
+                            <span><spring:message code="user"/></span>
+                        </a>
+                    </li>
+                </ul>
+                <li class="nav-item">
+                    <a role="tab" class="nav-link" id="tab-2" data-toggle="tab" href="#tab-content-2">
+                        <span><spring:message code="role"/></span>
+                    </a>
+                </li>
+                <div class="tab-content">
+                    <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="main-card mb-3 card">
+                                    <div class="card-header"><spring:message code="tableUser"/>
+                                        <div class="btn-actions-pane-right">
+                                            <div role="group" class="btn-group-sm btn-group">
+                                                <button type="button" class="btn btn-success" data-toggle="modal"
+                                                        data-target=".modal-create-department">
+                                            <span class="btn-icon-wrapper pr-2 opacity-7">
+                                                    <i class="fas fa-plus"></i>
+                                                </span><spring:message code="addition"/>
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="widget-content-left">
-                                        <div class="widget-heading">Total Orders</div>
-                                        <div class="widget-subheading">Last year expenses</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="widget-content">
-                                <div class="widget-content-wrapper">
-                                    <div class="widget-content-right ml-0 mr-3">
-                                        <div class="widget-numbers text-warning">$ 14M</div>
-                                    </div>
-                                    <div class="widget-content-left">
-                                        <div class="widget-heading">Products Sold</div>
-                                        <div class="widget-subheading">Total revenue streams</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="widget-content">
-                                <div class="widget-content-wrapper">
-                                    <div class="widget-content-right ml-0 mr-3">
-                                        <div class="widget-numbers text-danger">45.9%</div>
-                                    </div>
-                                    <div class="widget-content-left">
-                                        <div class="widget-heading">Followers</div>
-                                        <div class="widget-subheading">People Interested</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="divider mt-0" style="margin-bottom: 30px;"></div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="main-card mb-3 card">
-                            <div class="card-body">
-                                <h5 class="card-title"><spring:message code="tableUser"/></h5>
-                                <div class="row">
                                     <div class="table-responsive">
                                         <table class="mb-0 table table-hover">
                                             <thead>
                                             <tr>
                                                 <th class="text-center"><spring:message code="code"/></th>
                                                 <th class="text-center"><spring:message code="userName"/></th>
-                                                <th class="text-center"><spring:message code="name"/></th>
-                                                <th class="text-center"><spring:message code="email"/></th>
+                                                <th class="text-center"><spring:message code="role"/></th>
                                                 <th class="text-center"><spring:message code="status"/></th>
                                                 <th class="text-center"><spring:message code="function"/></th>
                                             </tr>
@@ -100,10 +78,8 @@
                                             <c:forEach items="${users}" var="user">
                                                 <tr>
                                                     <th class="text-center" scope="row">${user.userId}</th>
-                                                    <td class="text-center">${user.nameUser}</td>
-                                                    <td class="text-center">${user.name}</td>
-                                                    <td class="text-center">${user.email}</td>
-                                                    <td class="text-center">${user.dob}</td>
+                                                    <td class="text-center">${user.userName}</td>
+                                                    <td class="text-center">${user.role.name}</td>
                                                     <c:if test="${user.enable}">
                                                         <td class="text-center">
                                                             <div class="badge badge-success"><spring:message
@@ -127,6 +103,57 @@
                                                            class="mb-2 mr-2 btn-transition btn btn-outline-primary">
                                                             <span class="btn-icon-wrapper pl-2 pr-2 opacity-7">
                                                                     <i class="fas fa-edit"></i>
+                                                                </span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </c:forEach>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane tabs-animation fade" id="tab-content-2" role="tabpanel">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="main-card mb-3 card">
+                                    <div class="card-header"><spring:message code="tableRole"/>
+                                        <div class="btn-actions-pane-right">
+                                            <div role="group" class="btn-group-sm btn-group">
+                                                <button type="button" class="btn btn-success" data-toggle="modal"
+                                                        data-target=".modal-create-job">
+                                            <span class="btn-icon-wrapper pr-2 opacity-7">
+                                                    <i class="fas fa-plus"></i>
+                                                </span><spring:message code="addition"/>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="mb-0 table table-hover">
+                                            <thead>
+                                            <tr>
+                                                <th class="text-center"><spring:message
+                                                        code="code"/></th>
+                                                <th class="text-center"><spring:message
+                                                        code="nameRole"/></th>
+                                                <th class="text-center"><spring:message code="function"/></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <c:forEach items="${roles}" var="role">
+                                                <tr>
+                                                    <th class="text-center"
+                                                        scope="row">${role.roleId}</th>
+                                                    <td class="text-center">${role.name}</td>
+                                                    <td class="text-center">
+                                                        <a href="role/delete/${role.roleId}"
+                                                           type="submit"
+                                                           class="mb-2 mr-2 btn-transition btn btn-outline-danger">
+                                                            <span class="btn-icon-wrapper pr-2 pl-2 opacity-7">
+                                                                    <i class="fas fa-trash"></i>
                                                                 </span>
                                                         </a>
                                                     </td>

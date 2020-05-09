@@ -19,9 +19,8 @@ public class Customer implements Serializable {
 	@Column(name = "id")
 	private long customerId;
 
-	@OneToMany(mappedBy = "customer",fetch = FetchType.LAZY)
-	@Column(name = "customer_sale")
-	private List<SaleInvoice> saleInvoices;
+	@OneToOne(mappedBy = "customer")
+	private SaleInvoice saleInvoice;
 
 	@Column(name = "phone_number")
 	private String phoneNumber;
@@ -33,13 +32,12 @@ public class Customer implements Serializable {
 	private String address;
 	private String email;
 
-
-	public List<SaleInvoice> getSaleInvoices() {
-		return saleInvoices;
+	public SaleInvoice getSaleInvoice() {
+		return saleInvoice;
 	}
 
-	public void setSaleInvoices(List<SaleInvoice> saleInvoices) {
-		this.saleInvoices = saleInvoices;
+	public void setSaleInvoice(SaleInvoice saleInvoice) {
+		this.saleInvoice = saleInvoice;
 	}
 
 	public long getCustomerId() {

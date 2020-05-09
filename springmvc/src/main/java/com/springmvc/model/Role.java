@@ -19,35 +19,7 @@ public class Role implements Serializable {
 	@GeneratedValue(strategy =  GenerationType.IDENTITY)
 	private long roleId;
 
-	@NotNull
 	private String name;
-
-	private boolean enable;
-
-	@OneToOne
-	@JoinColumn(name = "user_role")
-	private User users;
-
-	//ánh xạ tới role và khi select object role sẽ có role
-	@OneToMany(fetch = FetchType.EAGER)
-	@Column(name = "role_detail")
-	protected List<RoleDetail> roleDetails;
-
-	public User getUsers() {
-		return users;
-	}
-
-	public void setUsers(User users) {
-		this.users = users;
-	}
-
-	public long getRoleId() {
-		return roleId;
-	}
-
-	public void setRoleId(long roleId) {
-		this.roleId = roleId;
-	}
 
 	public String getName() {
 		return name;
@@ -57,19 +29,11 @@ public class Role implements Serializable {
 		this.name = name;
 	}
 
-	public List<RoleDetail> getRoleDetails() {
-		return roleDetails;
+	public long getRoleId() {
+		return roleId;
 	}
 
-	public void setRoleDetails(List<RoleDetail> roleDetails) {
-		this.roleDetails = roleDetails;
-	}
-
-	public boolean isEnable() {
-		return enable;
-	}
-
-	public void setEnable(boolean enable) {
-		this.enable = enable;
+	public void setRoleId(long roleId) {
+		this.roleId = roleId;
 	}
 }

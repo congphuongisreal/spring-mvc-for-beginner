@@ -34,49 +34,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="main-card mb-3 card">
-                    <div class="no-gutters row">
-                        <div class="col-md-4">
-                            <div class="widget-content">
-                                <div class="widget-content-wrapper">
-                                    <div class="widget-content-right ml-0 mr-3">
-                                        <div class="widget-numbers text-success">1896</div>
-                                    </div>
-                                    <div class="widget-content-left">
-                                        <div class="widget-heading">Total Orders</div>
-                                        <div class="widget-subheading">Last year expenses</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="widget-content">
-                                <div class="widget-content-wrapper">
-                                    <div class="widget-content-right ml-0 mr-3">
-                                        <div class="widget-numbers text-warning">$ 14M</div>
-                                    </div>
-                                    <div class="widget-content-left">
-                                        <div class="widget-heading">Products Sold</div>
-                                        <div class="widget-subheading">Total revenue streams</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="widget-content">
-                                <div class="widget-content-wrapper">
-                                    <div class="widget-content-right ml-0 mr-3">
-                                        <div class="widget-numbers text-danger">45.9%</div>
-                                    </div>
-                                    <div class="widget-content-left">
-                                        <div class="widget-heading">Followers</div>
-                                        <div class="widget-subheading">People Interested</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
                     <li class="nav-item">
                         <a role="tab" class="nav-link active" id="tab-0" data-toggle="tab" href="#tab-content-0">
@@ -94,79 +51,76 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="main-card mb-3 card">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><spring:message code="tableDepartment"/></h5>
-                                        <div class="row">
-                                            <div class="col-md-9">
-                                                <div class="position-relative form-group">
-                                                    <button type="button" class="btn btn-success" data-toggle="modal"
-                                                            data-target=".modal-create-department">
-                                                            <span class="btn-icon-wrapper pr-2 opacity-7">
-                                                                    <i class="fas fa-plus"></i>
-                                                            </span><spring:message code="addition"/>
-                                                    </button>
-                                                </div>
+                                    <div class="card-header"><spring:message code="tableDepartment"/>
+                                        <div class="btn-actions-pane-right">
+                                            <div role="group" class="btn-group-sm btn-group">
+                                                <button type="button" class="btn btn-success" data-toggle="modal"
+                                                        data-target=".modal-create-department">
+                                            <span class="btn-icon-wrapper pr-2 opacity-7">
+                                                    <i class="fas fa-plus"></i>
+                                                </span><spring:message code="addition"/>
+                                                </button>
                                             </div>
-                                            <div class="table-responsive">
-                                                <table class="mb-0 table table-hover">
-                                                    <thead>
-                                                    <tr>
-                                                        <th class="text-center"><spring:message
-                                                                code="code"/></th>
-                                                        <th class="text-center"><spring:message
-                                                                code="nameDepartment"/></th>
-                                                        <th class="text-center"><spring:message code="status"/></th>
-                                                        <th class="text-center"><spring:message code="function"/></th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    <c:forEach items="${departments}" var="department">
-                                                        <tr>
-                                                            <th class="text-center"
-                                                                scope="row">${department.departmentId}</th>
-                                                            <td class="text-center">${department.name}</td>
-                                                            <c:if test="${department.enable}">
-                                                                <td class="text-center">
-                                                                    <div class="badge badge-success"><spring:message
-                                                                            code="active"/></div>
-                                                                </td>
-                                                            </c:if>
-                                                            <c:if test="${not department.enable}">
-                                                                <td class="text-center">
-                                                                    <div class="badge badge-warning">
-                                                                        <spring:message code="inactive"/>
-                                                                    </div>
-                                                                </td>
-                                                            </c:if>
-                                                            <td class="text-center">
-                                                                <a href="department/info/${department.departmentId}"
-                                                                   type="submit"
-                                                                   class="mb-2 mr-2 btn-transition btn btn-outline-primary">
+                                        </div>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="mb-0 table table-hover">
+                                            <thead>
+                                            <tr>
+                                                <th class="text-center"><spring:message
+                                                        code="code"/></th>
+                                                <th class="text-center"><spring:message
+                                                        code="nameDepartment"/></th>
+                                                <th class="text-center"><spring:message code="status"/></th>
+                                                <th class="text-center"><spring:message code="function"/></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <c:forEach items="${departments}" var="department">
+                                                <tr>
+                                                    <th class="text-center"
+                                                        scope="row">${department.departmentId}</th>
+                                                    <td class="text-center">${department.name}</td>
+                                                    <c:if test="${department.enable}">
+                                                        <td class="text-center">
+                                                            <div class="badge badge-success"><spring:message
+                                                                    code="active"/></div>
+                                                        </td>
+                                                    </c:if>
+                                                    <c:if test="${not department.enable}">
+                                                        <td class="text-center">
+                                                            <div class="badge badge-warning">
+                                                                <spring:message code="inactive"/>
+                                                            </div>
+                                                        </td>
+                                                    </c:if>
+                                                    <td class="text-center">
+                                                        <a href="department/info/${department.departmentId}"
+                                                           type="submit"
+                                                           class="mb-2 mr-2 btn-transition btn btn-outline-primary">
                                                             <span class="btn-icon-wrapper pr-2 pl-2 opacity-7">
                                                                     <i class="fas fa-info-circle"></i>
                                                                 </span>
-                                                                </a>
-                                                                <a href="department/getId/${department.departmentId}"
-                                                                   type="submit"
-                                                                   class="mb-2 mr-2 btn-transition btn btn-outline-primary">
+                                                        </a>
+                                                        <a href="department/getId/${department.departmentId}"
+                                                           type="submit"
+                                                           class="mb-2 mr-2 btn-transition btn btn-outline-primary">
                                                             <span class="btn-icon-wrapper pr-2 pl-2 opacity-7">
                                                                     <i class="fas fa-edit"></i>
                                                                 </span>
-                                                                </a>
-                                                                <a href="department/delete/${department.departmentId}"
-                                                                   type="submit"
-                                                                   class="mb-2 mr-2 btn-transition btn btn-outline-danger">
+                                                        </a>
+                                                        <a href="department/delete/${department.departmentId}"
+                                                           type="submit"
+                                                           class="mb-2 mr-2 btn-transition btn btn-outline-danger">
                                                             <span class="btn-icon-wrapper pr-2 pl-2 opacity-7">
                                                                     <i class="fas fa-trash"></i>
                                                                 </span>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                    </c:forEach>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </c:forEach>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
@@ -176,78 +130,75 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="main-card mb-3 card">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><spring:message code="tableJob"/></h5>
-                                        <div class="row">
-                                            <div class="col-md-9">
-                                                <div class="position-relative form-group">
-                                                    <button type="button" class="btn btn-success" data-toggle="modal"
-                                                            data-target=".modal-create-job">
+                                    <div class="card-header"><spring:message code="tableJob"/>
+                                        <div class="btn-actions-pane-right">
+                                            <div role="group" class="btn-group-sm btn-group">
+                                                <button type="button" class="btn btn-success" data-toggle="modal"
+                                                        data-target=".modal-create-job">
                                             <span class="btn-icon-wrapper pr-2 opacity-7">
                                                     <i class="fas fa-plus"></i>
                                                 </span><spring:message code="addition"/>
-                                                    </button>
-                                                </div>
+                                                </button>
                                             </div>
-                                            <div class="table-responsive">
-                                                <table class="mb-0 table table-hover">
-                                                    <thead>
-                                                    <tr>
-                                                        <th class="text-center"><spring:message
-                                                                code="code"/></th>
-                                                        <th class="text-center"><spring:message
-                                                                code="nameJob"/></th>
-                                                        <th class="text-center"><spring:message code="status"/></th>
-                                                        <th class="text-center"><spring:message code="function"/></th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    <c:forEach items="${jobs}" var="job">
-                                                        <tr>
-                                                            <th class="text-center"
-                                                                scope="row">${job.jobId}</th>
-                                                            <td class="text-center">${job.name}</td>
-                                                            <c:if test="${job.enable}">
-                                                                <td class="text-center">
-                                                                    <div class="badge badge-success"><spring:message
-                                                                            code="active"/></div>
-                                                                </td>
-                                                            </c:if>
-                                                            <c:if test="${not job.enable}">
-                                                                <td class="text-center">
-                                                                    <div class="badge badge-warning"><spring:message
-                                                                            code="inactive"/></div>
-                                                                </td>
-                                                            </c:if>
-                                                            <td class="text-center">
-                                                                <a href="job/info/${job.jobId}"
-                                                                   type="submit"
-                                                                   class="mb-2 mr-2 btn-transition btn btn-outline-primary">
+                                        </div>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="mb-0 table table-hover">
+                                            <thead>
+                                            <tr>
+                                                <th class="text-center"><spring:message
+                                                        code="code"/></th>
+                                                <th class="text-center"><spring:message
+                                                        code="nameJob"/></th>
+                                                <th class="text-center"><spring:message code="status"/></th>
+                                                <th class="text-center"><spring:message code="function"/></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <c:forEach items="${jobs}" var="job">
+                                                <tr>
+                                                    <th class="text-center"
+                                                        scope="row">${job.jobId}</th>
+                                                    <td class="text-center">${job.name}</td>
+                                                    <c:if test="${job.enable}">
+                                                        <td class="text-center">
+                                                            <div class="badge badge-success"><spring:message
+                                                                    code="active"/></div>
+                                                        </td>
+                                                    </c:if>
+                                                    <c:if test="${not job.enable}">
+                                                        <td class="text-center">
+                                                            <div class="badge badge-warning"><spring:message
+                                                                    code="inactive"/></div>
+                                                        </td>
+                                                    </c:if>
+                                                    <td class="text-center">
+                                                        <a href="job/info/${job.jobId}"
+                                                           type="submit"
+                                                           class="mb-2 mr-2 btn-transition btn btn-outline-primary">
                                                             <span class="btn-icon-wrapper pr-2 pl-2 opacity-7">
                                                                     <i class="fas fa-info-circle"></i>
                                                                 </span>
-                                                                </a>
-                                                                <a href="job/getId/${job.jobId}"
-                                                                   type="submit"
-                                                                   class="mb-2 mr-2 btn-transition btn btn-outline-primary">
+                                                        </a>
+                                                        <a href="job/getId/${job.jobId}"
+                                                           type="submit"
+                                                           class="mb-2 mr-2 btn-transition btn btn-outline-primary">
                                                             <span class="btn-icon-wrapper pr-2 pl-2 opacity-7">
                                                                     <i class="fas fa-edit"></i>
                                                                 </span>
-                                                                </a>
-                                                                <a href="job/delete/${job.jobId}"
-                                                                   type="submit"
-                                                                   class="mb-2 mr-2 btn-transition btn btn-outline-danger">
+                                                        </a>
+                                                        <a href="job/delete/${job.jobId}"
+                                                           type="submit"
+                                                           class="mb-2 mr-2 btn-transition btn btn-outline-danger">
                                                             <span class="btn-icon-wrapper pr-2 pl-2 opacity-7">
                                                                     <i class="fas fa-trash"></i>
                                                                 </span>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                    </c:forEach>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </c:forEach>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>

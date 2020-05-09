@@ -119,7 +119,7 @@
                                     </div>
                                 </div>
                                 <div class="form-row">
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-2">
                                         <div class="position-relative form-group">
                                             <label class="mr-sm-2" for="name"><spring:message
                                                     code="entryPrice"/></label>
@@ -129,7 +129,16 @@
                                                         path="entryPrice"></form:input>
                                         </div>
                                     </div>
-                                    <div class="col-md-9">
+                                    <div class="col-lg-2">
+                                        <div class="position-relative form-group">
+                                            <label class="mr-sm-2" for="productImage"><spring:message
+                                                    code="productImage"/></label>
+                                            <form:input type="file"
+                                                        readonly="${readonly}"
+                                                        path="productImage"></form:input>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
                                         <div class="position-relative form-group">
                                             <label class="mr-sm-2" for="name"><spring:message
                                                     code="note"/></label>

@@ -17,19 +17,36 @@ public class PurchaseInvoice implements Serializable {
 	private long purchaseInvoiceId;
 
 	@OneToOne
-	@JoinColumn(name = "employee")
 	private Employee employee;
 
 	@OneToOne
-	@JoinColumn(name = "provider")
 	private Provider provider;
 
 	@OneToMany
 	private List<Product> products;
 
 	private String address;
+	private String note;
 	private String date;
+	private long total;
 	private boolean enable;
+
+
+	public String getNote() {
+		return note;
+	}
+
+	public void setNote(String note) {
+		this.note = note;
+	}
+
+	public long getTotal() {
+		return total;
+	}
+
+	public void setTotal(long total) {
+		this.total = total;
+	}
 
 	public String getAddress() {
 		return address;

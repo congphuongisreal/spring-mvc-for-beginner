@@ -38,7 +38,6 @@
                 <value>com.springmvc.model.Customer</value>
                 <value>com.springmvc.model.PurchaseInvoice</value>
                 <value>com.springmvc.model.Role</value>
-                <value>com.springmvc.model.RoleDetail</value>
                 <value>com.springmvc.model.SaleInvoice</value>
                 <value>com.springmvc.model.Type</value>
                 <value>com.springmvc.model.User</value>
@@ -49,8 +48,31 @@
           class="org.springframework.orm.hibernate4.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
-
     <security:http auto-config="true" use-expressions="true">
+        <security:intercept-url pattern="/home/**"
+                                access="hasAnyRole('ROLE_ADMIN','ROLE_USER')"/>
+        <security:intercept-url pattern="/product/**"
+                                access="hasRole('ROLE_ADMIN')"/>
+        <security:intercept-url pattern="/provider"
+                                access="hasRole('ROLE_ADMIN')"/>
+        <security:intercept-url pattern="/invoice/**"
+                                access="hasRole('ROLE_ADMIN')"/>
+        <security:intercept-url pattern="/customer/**"
+                                access="hasRole('ROLE_ADMIN')"/>
+        <security:intercept-url pattern="/department/**"
+                                access="hasRole('ROLE_ADMIN')"/>
+        <security:intercept-url pattern="/employee/**"
+                                access="hasRole('ROLE_ADMIN')"/>
+        <security:intercept-url pattern="/user/**"
+                                access="hasRole('ROLE_ADMIN')"/>
+        <security:intercept-url pattern="/role/**"
+                                access="hasRole('ROLE_ADMIN')"/>
+        <security:intercept-url pattern="/settings/**"
+                                access="hasRole('ROLE_ADMIN')"/>
+        <security:intercept-url pattern="/activity/**"
+                                access="hasRole('ROLE_ADMIN')"/>
+        <security:intercept-url pattern="/report/**"
+                                access="hasRole('ROLE_ADMIN')"/>
         <security:form-login login-page="/login"
                              login-processing-url="/j_spring_security_check"
                              username-parameter="j_username"
@@ -60,6 +82,8 @@
         <security:logout logout-url="/logout" delete-cookies="JSESSIONID" logout-success-url="/login?logout"/>
         <security:csrf disabled="true"/>
     </security:http>
+
+    <!--    authentication custom-->
     <security:authentication-manager>
         <security:authentication-provider>
             <security:user-service>
@@ -68,12 +92,13 @@
                 <security:user name="admin@gmail.com" password="admin"
                                authorities="ROLE_ADMIN"/>
             </security:user-service>
-            <!--            <security:jdbc-user-service-->
-            <!--                    data-source-ref="dataSource"-->
-            <!--                    authorities-by-username-query="SELECT-->
-            <!--				emailId,authorities FROM authorities WHERE emailId =?"-->
-            <!--                    users-by-username-query="SELECT-->
-            <!--				emailId, password, enabled FROM users WHERE emailId=? " />-->
+        </security:authentication-provider>
+
+        <!--authentication from database-->
+        <security:authentication-provider>
+            <security:jdbc-user-service data-source-ref="dataSource"
+                                        users-by-username-query="select user_name,password, enable from users where user_name=?"
+                                        authorities-by-username-query="Select u.user_name, concat('ROLE_',r.name) r.name from users as u, role as r where u.role_users= r.id and u.user_name=?"/>
         </security:authentication-provider>
     </security:authentication-manager>
 
