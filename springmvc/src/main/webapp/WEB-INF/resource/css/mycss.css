@@ -1,0 +1,24 @@
+.bg-sliver{
+	background-color:#e9ecef;
+	border-top:1px solid #e6e6e6;
+}
+.btn-center{
+	width:50%;
+}
+.change-languages{
+	color: #212529;
+		float:right;
+}
+.change-languages:hover{
+		text-decoration:none;
+		cursor: pointer;
+	}
+.control-left{
+	float:left;
+}
+.control-right{
+	float:right;
+}
+.form_edit{
+	padding: 30px 20% !important;
+}
