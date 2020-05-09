@@ -75,7 +75,7 @@
 
                                 </div>
                                 <div class="form-row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-12">
                                         <div class="position-relative form-group">
                                             <label class="mr-sm-2" for="address"><spring:message
                                                     code="address"/></label>

@@ -61,13 +61,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="<c:url value="/sale_invoice" /> " ${active_sale}>
-                                <i class="metismenu-icon fas fa-truck"></i>
-                                <spring:message code="saleInvoice"/>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<c:url value="/purchase_invoice" />" ${active_purchase}>
+                            <a href="<c:url value="/invoice" />" ${active_purchase}>
                                 <i class="metismenu-icon fas fa-shopcart"></i>
                                 <spring:message code="purchaseInvoice"/>
                             </a>

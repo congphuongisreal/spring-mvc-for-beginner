@@ -23,7 +23,7 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 
-	@RequestMapping(value = "/product", method = RequestMethod.GET)
+	@RequestMapping(value = "/product")
 	public String sayProduct(Model model) {
 		model.addAttribute("productObj", new Product());
 		model.addAttribute("products", productService.getAllProduct());
@@ -48,15 +48,17 @@ public class ProductController {
 		model.addAttribute("productObj", product);
 		model.addAttribute("check", 1);
 		model.addAttribute("readonly", "true");
+		model.addAttribute("active_product", "class=\"mm-active\"");
 		return "edit_product";
 	}
 
-	@RequestMapping(value = "/product/update/{productId}", method = RequestMethod.GET)
-	public String updateProduct(@PathVariable(value = "productId") long productId, Model model) {
+	@RequestMapping(value = "/product/getId/{productId}", method = RequestMethod.GET)
+	public String updateProduct(@PathVariable(value = "productId") long productId,Model model) {
 		Product product = productService.getProductById(productId);
 		model.addAttribute("productObj", product);
 		model.addAttribute("active_product", "class=\"mm-active\"");
 		return "edit_product";
+
 	}
 
 	@RequestMapping(value = "/product/update", method = RequestMethod.POST)
@@ -68,6 +70,7 @@ public class ProductController {
 	@RequestMapping(value = "/product/delete/{productId}")
 	public String deleteProduct(@PathVariable(value = "productId") long productId) {
 		productService.deleteProductId(productId);
+		FileUploadUtility.deleteFile(productId);
 		return "redirect:/product";
 	}
 

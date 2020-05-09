@@ -1,15 +1,17 @@
 package com.springmvc.controller.com.springmvc.file;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class FileUploadUtility {
 
-	private static final String ABS_PATH = "D:\\spring\\springmvc\\src\\main\\webapp\\WEB-INF\\resource\\assets\\images\\avatars\\";
+	//change directory
+	private static final String ABS_PATH = "C:\\Users\\Admin\\Desktop\\github\\spring-mvc-for-beginner\\springmvc\\src\\main\\webapp\\WEB-INF\\resource\\assets\\images\\avatars";
 	private static String REAL_PATH = "";
 
 
@@ -25,6 +27,17 @@ public class FileUploadUtility {
 			file.transferTo(new File(ABS_PATH + code + ".jpg"));
 		} catch (Exception e) {
 
+		}
+	}
+
+	public static void deleteFile(long code){
+		Path path = Paths.get("C:\\Users\\Admin\\Desktop\\github\\spring-mvc-for-beginner\\springmvc\\src\\main\\webapp\\WEB-INF\\resource\\assets\\images\\avatars\\" + code + ".jpg");
+		if (Files.exists(path)) {
+			try {
+				Files.delete(path);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 

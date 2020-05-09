@@ -1,6 +1,10 @@
 # spring-mvc-for-beginner
 *Ecommerce admin web Application using Spring MVC with multiple modules
 
+
+* **Technology** : Bootstrap, Java, Spring MVC, Hibernate, JSP, Maven, Postgres, Jquery
+
+
 #Function
 
 1 User Registeration
@@ -15,11 +19,15 @@
 
 1. Development Platform - Intellij 
 
-2 Server - Apche Tomcat Server 9
+2 Server - Apache Tomcat Server 9
 
 3 Build Tool - maven
 
 4 Database - Postgresql
+
+5 Template - Architect
+
+
 
 # Configure 
 
@@ -42,8 +50,8 @@
 
 * Login
 
- <security:user name="admin@gmail.com" password="admin"
-                               authorities="ROLE_USER"/>
-                <security:user name="congphuong@gmail.com" password="Conghpuong1"
-                               authorities="ROLE_ADMIN"/>
+             <security:user name="adminn@gmail.com" password="admin"
+                                           authorities="ROLE_USER"/>
+                            <security:user name="admin@gmail.com" password="admin"
+                                           authorities="ROLE_ADMIN"/>
                            

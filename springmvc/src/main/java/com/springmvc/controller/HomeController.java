@@ -9,11 +9,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class HomeController {
 
 
-	@RequestMapping({"login",""})
+	@RequestMapping("login")
 	public String login(@RequestParam(value = "invalid", required = false) String error, Model model) {
 		if (error == null)
 			model.addAttribute("invalid", "Invalid username and password");
 		return "login";
+	}
+
+	@RequestMapping("/")
+	public String sayHome() {
+		return "redirect:/home";
 	}
 
 	@RequestMapping("/home")

@@ -119,7 +119,7 @@
                                     </div>
                                 </div>
                                 <div class="form-row">
-                                    <div class="col-lg-2">
+                                    <div class="col-lg-3">
                                         <div class="position-relative form-group">
                                             <label class="mr-sm-2" for="name"><spring:message
                                                     code="entryPrice"/></label>
@@ -143,7 +143,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <a href="<c:url value="/product" />" type="button" class="btn btn-secondary">
+                            <a href="<c:url value="/product" />" type="submit" class="btn btn-secondary">
                                 <spring:message code="close"/></a>
                             <c:if test="${check  != 1}">
                                 <button type="submit" class="btn btn-primary"><spring:message code="update"/></button>

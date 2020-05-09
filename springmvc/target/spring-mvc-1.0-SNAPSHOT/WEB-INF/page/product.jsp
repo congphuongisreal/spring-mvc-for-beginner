@@ -175,7 +175,7 @@
                                                                     <i class="fas fa-info-circle"></i>
                                                                 </span>
                                                                 </a>
-                                                                <a href="product/update/${product.productId}"
+                                                                <a href="product/getId/${product.productId}"
                                                                    type="submit"
                                                                    class="mb-2 mr-2 btn-transition btn btn-outline-primary">
                                                             <span class="btn-icon-wrapper pr-2 pl-2 opacity-7">
