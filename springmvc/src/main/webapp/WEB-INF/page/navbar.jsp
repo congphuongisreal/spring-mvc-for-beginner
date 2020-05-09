@@ -110,7 +110,7 @@
                 <li class="app-sidebar__heading"><spring:message code="administration"/></li>
                 <li>
                     <a href="<c:url value="/user" />" ${active_user}>
-                        <i class="metismenu-icon">
+                        <i class="metismenu-icon fas fa-user-alt">
                         </i><spring:message code="user"/>
                     </a>
                 </li>
@@ -127,7 +127,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/logout">
+                    <a href=" href="<c:url value="/logout" />"">
                         <i class="metismenu-icon fas fa-sign-out-alt">
                         </i><spring:message code="logout"/>
                     </a>

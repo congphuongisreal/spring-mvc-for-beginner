@@ -53,7 +53,7 @@
                                     <div tabindex="-1" class="dropdown-divider"></div>
                                     <button type="button" tabindex="0" class="dropdown-item"><spring:message code="activity"/></button>
                                     <div tabindex="-1" class="dropdown-divider"></div>
-                                    <a href="/logout" tabindex="0" class="dropdown-item"><spring:message code="logout"/></a>
+                                    <a href="<c:url value="/logout" />" tabindex="0" class="dropdown-item"><spring:message code="logout"/></a>
                                 </div>
                             </div>
                         </div>
