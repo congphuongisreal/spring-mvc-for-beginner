@@ -65,7 +65,7 @@
             <security:user-service>
                 <security:user name="admin@gmail.com" password="admin"
                                authorities="ROLE_USER"/>
-                <security:user name="congphuong@gmail.com" password="Conghpuong1"
+                <security:user name="congphuong@gmail.com" password="Congphuong"
                                authorities="ROLE_ADMIN"/>
             </security:user-service>
             <!--            <security:jdbc-user-service-->
