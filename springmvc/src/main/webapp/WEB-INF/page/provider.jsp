@@ -125,6 +125,7 @@
                                     <form:input type="text"
                                                 placeholder="Name..." class="form-control"
                                                 path="name"></form:input>
+                                    <form:errors cssClass="error" path="name"/>
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -133,6 +134,7 @@
                                     <form:input type="text"
                                                 placeholder="Phone Number..." class="form-control"
                                                 path="phoneNumber"></form:input>
+                                    <form:errors cssClass="error" path="phoneNumber"/>
                                 </div>
                             </div>
                         </div>
@@ -143,6 +145,7 @@
                                     <form:input type="email"
                                                 placeholder="Email..." class="form-control"
                                                 path="email"></form:input>
+                                    <form:errors cssClass="error" path="email"/>
                                 </div>
                             </div>
                             <div class="col-lg-6">

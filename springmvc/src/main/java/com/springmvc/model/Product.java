@@ -1,10 +1,12 @@
 package com.springmvc.model;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 
 @Entity
@@ -18,7 +20,7 @@ public class Product implements Serializable {
 	@Column(name = "id")
 	private long productId;
 
-	@NotNull
+	@NotNull(message = "Name not null")
 	private String name;
 
 	@Column(name = "entry_price")
@@ -26,13 +28,20 @@ public class Product implements Serializable {
 
 	@OneToOne
 	@JoinColumn(name = "product_type")
+	@NotNull(message = "Type not null")
 	private Type type;
 
-	@NotNull
+	@NotNull(message="Please input number")
+	@Min(1000)
+	@Pattern(regexp = "^[0-9]$")
 	private int number;
 
 	private String color;
+
 	private String size;
+
+	@NotNull(message = "Please input price")
+	@Min(1000)
 	private int price;
 	private String unit;
 	private String note;

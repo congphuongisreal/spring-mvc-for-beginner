@@ -139,6 +139,7 @@
                                     <form:input type="text"
                                                 placeholder="Name..." class="form-control"
                                                 path="name"></form:input>
+                                    <form:errors path="name" cssClass="error"/>
                                 </div>
                             </div>
                             <div class="col-lg-3">
@@ -148,6 +149,7 @@
                                     <form:input type="text"
                                                 class="form-control"
                                                 path="department.departmentId"></form:input>
+                                    <form:errors path="department" cssClass="error"/>
                                 </div>
                             </div>
                             <div class="col-lg-3">
@@ -156,6 +158,7 @@
                                     <form:input type="text"
                                                 class="form-control"
                                                 path="job.jobId"></form:input>
+                                    <form:errors path="job" cssClass="error"/>
                                 </div>
                             </div>
                         </div>
@@ -166,6 +169,7 @@
                                     <form:input type="text"
                                                 placeholder="Phone Number..." class="form-control"
                                                 path="phoneNumber"></form:input>
+                                    <form:errors path="phoneNumber" cssClass="error"/>
                                 </div>
                             </div>
                             <div class="col-lg-3">
@@ -182,6 +186,7 @@
                                     <form:input type="email"
                                                 placeholder="Email..." class="form-control"
                                                 path="email"></form:input>
+                                    <form:errors path="email" cssClass="error"/>
                                 </div>
                             </div>
                         </div>
@@ -191,6 +196,7 @@
                                     <label for="dob" class=""><spring:message code="dob"/></label>
                                     <form:input type="date" class="form-control"
                                                 path="dob"></form:input>
+                                    <form:errors path="dob" cssClass="error"/>
                                 </div>
                             </div>
                             <div class="col-lg-8">

@@ -12,15 +12,26 @@ public class User implements Serializable {
 
 	private static final long serialVersionUID = 382759201829390123L;
 
+	public User(String userName, String password,Role role) {
+		this.userName = userName;
+		this.password = password;
+		this.role = role;
+	}
+
+	public User(){
+
+	}
+
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy =  GenerationType.IDENTITY)
 	private long userId;
 
-	@NotNull
+	@NotNull(message = "Please input user name")
 	@Column(name = "user_name")
 	private String userName;
 
+	@NotNull(message = "Please input password")
 	private String password;
 	private boolean enable;
 

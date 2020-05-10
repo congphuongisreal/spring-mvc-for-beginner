@@ -14,6 +14,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.io.IOException;
 
 
@@ -34,7 +35,7 @@ public class ProductController {
 	}
 
 	@RequestMapping(value = "/product/add", method = RequestMethod.POST)
-	public String addProduct(@ModelAttribute(value = "productObj") Product product, HttpServletRequest request) throws IOException {
+	public String addProduct(@Valid @ModelAttribute(value = "productObj") Product product, HttpServletRequest request) throws IOException {
 		productService.addProduct(product);
 		if(!product.getProductImage().getOriginalFilename().equals("")){
 			FileUploadUtility.uploadFile(request,product.getProductImage(),product.getProductId());
@@ -75,7 +76,7 @@ public class ProductController {
 	}
 
 	@RequestMapping(value = "/type/add", method = RequestMethod.POST)
-	public String addType(@ModelAttribute(value = "typeObj") Type type) {
+	public String addType(@Valid @ModelAttribute(value = "typeObj") Type type) {
 		productService.addType(type);
 		return "redirect:/product";
 	}

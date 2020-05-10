@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
+
 @Controller
 public class DepartmentController {
 
@@ -29,7 +31,7 @@ public class DepartmentController {
 	}
 
 	@RequestMapping(value = "/department/add", method = RequestMethod.POST)
-	public String addDepartment(@ModelAttribute(value = "department") Department department) {
+	public String addDepartment(@Valid @ModelAttribute(value = "department") Department department) {
 		departmentService.addDepartment(department);
 		return "redirect:/department";
 	}
@@ -59,7 +61,7 @@ public class DepartmentController {
 	}
 
 	@RequestMapping(value = "/job/add", method = RequestMethod.POST)
-	public String addJob(@ModelAttribute(value = "jobObj") Job job) {
+	public String addJob(@Valid @ModelAttribute(value = "jobObj") Job job) {
 		departmentService.addJob(job);
 		return "redirect:/department";
 	}

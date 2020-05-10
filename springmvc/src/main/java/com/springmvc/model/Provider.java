@@ -1,8 +1,11 @@
 package com.springmvc.model;
+import org.hibernate.validator.constraints.Email;
+
 import javax.validation.constraints.NotNull;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 import java.util.List;
 
@@ -17,16 +20,18 @@ public class Provider implements Serializable {
 	@Column(name = "id")
 	private long providerId;
 
-	@NotNull
+	@NotNull(message = "Please input name")
 	private String name;
 
 	@Column(name ="phone_number")
+	@Pattern(regexp = "^[0-9]{10}$")
 	private String phoneNumber;
 
+	@Email(message = "Email not valid. Please input email valid!")
 	private String email;
 	private String address;
 
-	@OneToOne
+	@OneToOne(mappedBy = "purchaseInvoice")
 	private PurchaseInvoice purchaseInvoice;
 
 	public PurchaseInvoice getPurchaseInvoice() {

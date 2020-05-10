@@ -14,11 +14,20 @@ public class Role implements Serializable {
 
 	private static final long serialVersionUID = 18574623948571248L;
 
+	public Role(String name) {
+		this.name = name;
+	}
+
+	public Role(){
+
+	}
+
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy =  GenerationType.IDENTITY)
 	private long roleId;
 
+	@NotNull(message = "Please input name")
 	private String name;
 
 	public String getName() {

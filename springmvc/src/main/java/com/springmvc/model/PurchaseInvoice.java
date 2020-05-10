@@ -16,10 +16,10 @@ public class PurchaseInvoice implements Serializable {
 	@Column(name = "id")
 	private long purchaseInvoiceId;
 
-	@OneToOne
+	@OneToOne(mappedBy = "purchaseInvoice")
 	private Employee employee;
 
-	@OneToOne
+	@OneToOne(mappedBy = "purchaseInvoice")
 	private Provider provider;
 
 	@OneToMany

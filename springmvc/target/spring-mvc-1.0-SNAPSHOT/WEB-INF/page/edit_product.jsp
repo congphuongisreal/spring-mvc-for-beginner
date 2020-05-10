@@ -67,7 +67,7 @@
                                         <div class="position-relative form-group">
                                             <label class="mr-sm-2" for="name"><spring:message
                                                     code="number"/></label>
-                                            <form:input type="number"
+                                            <form:input type="text"
                                                         placeholder="Number..." class="form-control"
                                                         readonly="${readonly}"
                                                         path="number"></form:input>
@@ -111,7 +111,7 @@
                                         <div class="position-relative form-group">
                                             <label class="mr-sm-2" for="name"><spring:message
                                                     code="price"/></label>
-                                            <form:input type="number"
+                                            <form:input type="text"
                                                         placeholder="Price..." class="form-control"
                                                         readonly="${readonly}"
                                                         path="price"></form:input>
@@ -123,7 +123,7 @@
                                         <div class="position-relative form-group">
                                             <label class="mr-sm-2" for="name"><spring:message
                                                     code="entryPrice"/></label>
-                                            <form:input type="number"
+                                            <form:input type="text"
                                                         placeholder="Entry Price..." class="form-control"
                                                         readonly="${readonly}"
                                                         path="entryPrice"></form:input>

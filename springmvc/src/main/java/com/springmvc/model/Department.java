@@ -16,8 +16,9 @@ public class Department implements Serializable {
 	@Column(name = "id")
 	private long departmentId;
 
-	@NotNull
+	@NotNull(message = "Name not null")
 	private String name;
+
 	private boolean enable;
 
 	@OneToMany(mappedBy = "department")

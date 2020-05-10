@@ -236,6 +236,7 @@
                                         <form:input type="text"
                                                     placeholder="Name Department..." class="form-control"
                                                     path="name"></form:input>
+                                        <form:errors path="name" cssClass="error"/>
                                     </div>
                                 </div>
                             </div>

@@ -1,7 +1,10 @@
 package com.springmvc.controller;
 
 import com.springmvc.model.Provider;
+import com.springmvc.model.Role;
+import com.springmvc.model.User;
 import com.springmvc.service.ProviderService;
+import com.springmvc.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
@@ -11,11 +14,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.validation.Valid;
+
 @Controller
 public class ProviderController {
 
 	@Autowired
 	private ProviderService providerService;
+
+	@Autowired
+	private UserService userService;
 
 	@RequestMapping(value = "/provider",method = RequestMethod.GET)
 	public String sayProvider(Model model){
@@ -26,8 +34,13 @@ public class ProviderController {
 	}
 
 	@RequestMapping(value = "/provider/add",method = RequestMethod.POST)
-	public String addProvider(@ModelAttribute(value = "providerObj") Provider provider){
+	public String addProvider(@Valid @ModelAttribute(value = "providerObj") Provider provider){
 		providerService.addProvider(provider);
+
+		Role role = new Role("PROVIDER");
+		User user = new User(provider.getEmail(), provider.getEmail(), role);
+
+		userService.addUser(user);
 		return "redirect:/provider";
 	}
 

@@ -1,6 +1,7 @@
 package com.springmvc.controller;
 
 import com.springmvc.model.Customer;
+import com.springmvc.model.Role;
 import com.springmvc.model.User;
 import com.springmvc.service.CustomerService;
 import com.springmvc.service.UserService;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.validation.Valid;
+
 @Controller
 public class CustomerController {
 
@@ -20,7 +23,6 @@ public class CustomerController {
 
 	@Autowired
 	private UserService userService;
-
 	@RequestMapping(value = "/customer", method = RequestMethod.GET)
 	public String sayCustomer(Model model) {
 		model.addAttribute("customer", new Customer());
@@ -31,8 +33,13 @@ public class CustomerController {
 
 
 	@RequestMapping(value = "/customer/add",method = RequestMethod.POST)
-	public String addCustomer(@ModelAttribute(value = "customer") Customer customer) {
+	public String addCustomer(@Valid @ModelAttribute(value = "customer") Customer customer) {
 		customerService.addCustomer(customer);
+
+		Role role = new Role("CUSTOMER");
+		User user = new User(customer.getEmail(),customer.getEmail(),role);
+
+		userService.addUser(user);
 		return "redirect:/customer";
 	}
 

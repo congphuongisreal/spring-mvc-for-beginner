@@ -18,20 +18,20 @@ public class Job implements Serializable {
 	@Column(name = "id")
 	private long jobId;
 
-	@NotNull
+	@NotNull(message = "Name not null")
 	private String name;
 
 	private boolean enable;
 
-	@OneToMany(mappedBy = "job")
-	private List<Employee> emloyees;
+	@OneToMany(mappedBy = "job",fetch = FetchType.LAZY)
+	private List<Employee> employees;
 
-	public List<Employee> getEmloyees() {
-		return emloyees;
+	public List<Employee> getEmployees() {
+		return employees;
 	}
 
-	public void setEmloyees(List<Employee> emloyees) {
-		this.emloyees = emloyees;
+	public void setEmployees(List<Employee> employees) {
+		this.employees = employees;
 	}
 
 	public long getJobId() {

@@ -1,9 +1,14 @@
 package com.springmvc.model;
 
+import org.hibernate.validator.constraints.Email;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.validation.constraints.NotNull;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 
 @Entity
@@ -17,30 +22,36 @@ public class Employee implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long employeeId;
 
-	@NotNull
+	@NotNull(message = "Name not null")
 	private String name;
 
 	@Column(name = "phone_number")
+	@Pattern(regexp = "^[0-9]{10}$")
 	private String phoneNumber;
 
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private String dob;
 	private String gender;
 	private String address;
+
+	@Email(message = "Not valid! Please input email valid")
 	private String email;
 	private boolean enable;
 
 	@ManyToOne
 	@JoinColumn(name = "employee_department")
+	@NotNull(message = "Department not null")
 	private Department department;
 
 	@ManyToOne
 	@JoinColumn(name = "employee_job")
+	@NotNull(message = "Job not null")
 	private Job job;
 
-	@OneToOne
+	@OneToOne(fetch = FetchType.LAZY,mappedBy = "employee")
 	private PurchaseInvoice purchaseInvoice;
 
-	@OneToOne(mappedBy = "employee")
+	@OneToOne(mappedBy = "employee",fetch = FetchType.LAZY)
 	private SaleInvoice saleInvoice;
 
 	public PurchaseInvoice getPurchaseInvoice() {

@@ -1,6 +1,7 @@
 package com.springmvc.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.List;
 
@@ -16,10 +17,12 @@ public class SaleInvoice implements Serializable {
 	private long saleInvoiceId;
 
 	@OneToOne
+	@NotNull(message = "Please input employee")
 	@JoinColumn(name = "employee")
 	private Employee employee;
 
 	@OneToOne
+	@NotNull(message = "Please input customer")
 	@JoinColumn(name = "customer")
 	private Customer customer;
 

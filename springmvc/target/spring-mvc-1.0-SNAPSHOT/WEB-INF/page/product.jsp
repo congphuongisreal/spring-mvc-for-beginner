@@ -250,6 +250,7 @@
                                     <form:input type="text"
                                                 placeholder="Name Product..." class="form-control"
                                                 path="name"></form:input>
+                                    <form:errors cssClass="error" path="name"/>
                                 </div>
                             </div>
                             <div class="col-lg-3">
@@ -265,9 +266,10 @@
                                 <div class="position-relative form-group">
                                     <label class="mr-sm-2" for="number"><spring:message
                                             code="number"/></label>
-                                    <form:input type="number"
+                                    <form:input type="text"
                                                 placeholder="Number..." class="form-control"
                                                 path="number"></form:input>
+                                    <form:errors cssClass="error" path="number"/>
                                 </div>
                             </div>
                             <div class="col-lg-2">
@@ -288,6 +290,7 @@
                                     <form:input type="text"
                                                 placeholder="Type..." class="form-control"
                                                 path="type.typeId"></form:input>
+                                    <form:errors cssClass="error" path="type"/>
                                 </div>
                             </div>
                             <div class="col-lg-3">
@@ -303,16 +306,17 @@
                                 <div class="position-relative form-group">
                                     <label class="mr-sm-2" for="name"><spring:message
                                             code="price"/></label>
-                                    <form:input type="number"
+                                    <form:input type="text"
                                                 placeholder="Price..." class="form-control"
                                                 path="price"></form:input>
+                                    <form:errors cssClass="error" path="price"/>
                                 </div>
                             </div>
                             <div class="col-lg-3">
                                 <div class="position-relative form-group">
                                     <label class="mr-sm-2" for="name"><spring:message
                                             code="entryPrice"/></label>
-                                    <form:input type="number"
+                                    <form:input type="text"
                                                 placeholder="Entry Price..." class="form-control"
                                                 path="entryPrice"></form:input>
                                 </div>
@@ -372,6 +376,7 @@
                                         <form:input type="text"
                                                     placeholder="Name Type..." class="form-control"
                                                     path="name"></form:input>
+                                        <form:errors cssClass="error" path="name"/>
                                     </div>
                                 </div>
                             </div>

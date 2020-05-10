@@ -15,6 +15,11 @@
           content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"/>
     <link rel="stylesheet" href="<c:url value="/resource/main.css"/>"/>
     <link rel="stylesheet" href="<c:url value="/resource/css/mycss.css"/>"/>
+    <style>
+        .error{
+            color :red;
+        }
+    </style>
 </head>
 <body>
 <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
@@ -125,6 +130,7 @@
                                     <form:input type="text"
                                                 placeholder="Name..." class="form-control"
                                                 path="name"></form:input>
+                                    <form:errors path="name" cssClass="error"/>
                                 </div>
                             </div>
                             <div class="col-lg-3">
@@ -133,6 +139,7 @@
                                     <form:input type="text"
                                                 placeholder="Phone Number..." class="form-control"
                                                 path="phoneNumber"></form:input>
+                                    <form:errors path="phoneNumber" cssClass="error"/>
                                 </div>
                             </div>
                             <div class="col-lg-5">
@@ -141,6 +148,7 @@
                                     <form:input type="email"
                                                 placeholder="Email..." class="form-control"
                                                 path="email"></form:input>
+                                    <form:errors path="email" cssClass="error"/>
                                 </div>
                             </div>
                         </div>

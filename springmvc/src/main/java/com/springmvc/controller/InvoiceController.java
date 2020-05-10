@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -38,7 +39,7 @@ public class InvoiceController {
 	}
 
 	@RequestMapping(value = "/sale/add", method = RequestMethod.POST)
-	public String addSaleInvoice(@ModelAttribute(value = "saleObj") SaleInvoice saleInvoice) {
+	public String addSaleInvoice(@Valid @ModelAttribute(value = "saleObj") SaleInvoice saleInvoice) {
 		long total = 0;
 		List<Product> products = saleInvoice.getProducts();
 
@@ -74,7 +75,7 @@ public class InvoiceController {
 	}
 
 	@RequestMapping(value = "/purchase/add", method = RequestMethod.POST)
-	public String addPurchaseInvoice(@ModelAttribute(value = "purchaseObj") PurchaseInvoice purchaseInvoice) {
+	public String addPurchaseInvoice(@Valid @ModelAttribute(value = "purchaseObj") PurchaseInvoice purchaseInvoice) {
 		long total = 0;
 		List<Product> products = purchaseInvoice.getProducts();
 

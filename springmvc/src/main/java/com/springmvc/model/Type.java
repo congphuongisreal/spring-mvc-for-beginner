@@ -17,7 +17,7 @@ public class Type implements Serializable {
 	@Column(name = "id")
 	private long typeId;
 
-	@NotNull
+	@NotNull(message = "Please input name")
 	private String name;
 
 	public long getTypeId() {

@@ -56,7 +56,7 @@
                                         <div class="position-relative form-group">
                                             <label class="mr-sm-2" for="phoneNumber"><spring:message
                                                     code="phoneNumber"/></label>
-                                            <form:input type="number"
+                                            <form:input type="text"
                                                         placeholder="Phone Number..." class="form-control"
                                                         readonly="${readonly}"
                                                         path="phoneNumber"></form:input>

@@ -235,6 +235,7 @@
                                             code="employee"/></label>
                                     <form:input type="text" placeholder="Employee..." class="form-control"
                                                 path="employee.employeeId"></form:input>
+                                    <form:errors path="employee" cssClass="error"/>
                                 </div>
                             </div>
                             <div class="col-lg-3">
@@ -243,6 +244,7 @@
                                             code="provider"/></label>
                                     <form:input type="text" placeholder="Provider..." class="form-control"
                                                 path="provider.providerId"></form:input>
+                                    <form:errors path="provider" cssClass="error"/>
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -300,6 +302,7 @@
                                             code="employee"/></label>
                                     <form:input type="text" placeholder="Employee..." class="form-control"
                                                 path="employee.employeeId"></form:input>
+                                    <form:errors path="employee" cssClass="error"/>
                                 </div>
                             </div>
                             <div class="col-lg-3">
@@ -308,6 +311,7 @@
                                             code="customer"/></label>
                                     <form:input type="text" placeholder="Customer..." class="form-control"
                                                 path="customer.customerId"></form:input>
+                                    <form:errors path="customer" cssClass="error"/>
                                 </div>
                             </div>
                             <div class="col-lg-6">

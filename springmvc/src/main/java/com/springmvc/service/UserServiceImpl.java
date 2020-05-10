@@ -47,6 +47,8 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void addRole(Role role) {
+		String name = role.getName();
+		role.setName(name.toUpperCase());
 		roleDao.addRole(role);
 	}
 
