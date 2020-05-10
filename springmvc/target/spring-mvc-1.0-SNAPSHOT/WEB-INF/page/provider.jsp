@@ -15,6 +15,7 @@
           content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"/>
     <link rel="stylesheet" href="<c:url value="/resource/main.css"/>"/>
     <link rel="stylesheet" href="<c:url value="/resource/css/mycss.css"/>"/>
+
 </head>
 <body>
 <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
@@ -150,7 +151,7 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="position-relative form-group">
-                                    <label for="address" class="">Email</label>
+                                    <label for="address" class=""><spring:message code="address"/></label>
                                     <form:input type="text"
                                                 placeholder="Address..." class="form-control"
                                                 path="address"></form:input>

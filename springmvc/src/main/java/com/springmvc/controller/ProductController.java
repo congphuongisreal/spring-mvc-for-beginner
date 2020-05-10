@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
@@ -35,7 +36,11 @@ public class ProductController {
 	}
 
 	@RequestMapping(value = "/product/add", method = RequestMethod.POST)
-	public String addProduct(@Valid @ModelAttribute(value = "productObj") Product product, HttpServletRequest request) throws IOException {
+	public String addProduct(@Valid @ModelAttribute(value = "productObj") Product product, HttpServletRequest request,BindingResult result) throws IOException {
+		if(result.hasErrors())
+			return "redirect:/product";
+		if(product.getNumber() > 0)
+			product.setEnable(true);
 		productService.addProduct(product);
 		if(!product.getProductImage().getOriginalFilename().equals("")){
 			FileUploadUtility.uploadFile(request,product.getProductImage(),product.getProductId());
@@ -63,7 +68,9 @@ public class ProductController {
 	}
 
 	@RequestMapping(value = "/product/update", method = RequestMethod.POST)
-	public String updateProduct(@ModelAttribute(value = "productObj") Product product) {
+	public String updateProduct(@Valid @ModelAttribute(value = "productObj") Product product,BindingResult result) {
+		if (result.hasErrors())
+			return "edit_product";
 		productService.updateProduct(product);
 		return "redirect:/product";
 	}
@@ -76,7 +83,9 @@ public class ProductController {
 	}
 
 	@RequestMapping(value = "/type/add", method = RequestMethod.POST)
-	public String addType(@Valid @ModelAttribute(value = "typeObj") Type type) {
+	public String addType(@Valid @ModelAttribute(value = "typeObj") Type type,BindingResult result) {
+		if(result.hasErrors())
+			return "redirect:/product";
 		productService.addType(type);
 		return "redirect:/product";
 	}
@@ -94,7 +103,9 @@ public class ProductController {
 	}
 
 	@RequestMapping(value = "/type/update", method = RequestMethod.POST)
-	public String updateType(@ModelAttribute(value = "typeObj") Type type) {
+	public String updateType(@Valid @ModelAttribute(value = "typeObj") Type type, BindingResult result) {
+		if(result.hasErrors())
+			return "edit_type";
 		productService.updateType(type);
 		return "redirect:/product";
 	}

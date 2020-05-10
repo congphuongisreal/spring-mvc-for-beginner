@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class HomeController {
 
 
-	@RequestMapping("login")
-	public String login(@RequestParam(value = "invalid", required = false) String error, Model model) {
-		if (error == null)
-			model.addAttribute("invalid", "Invalid username and password");
+	@RequestMapping("/login")
+	public String login(@RequestParam(value = "error", required = false) String error,@RequestParam(value = "logout", required = false) String logout, Model model) {
+		if (error != null)
+			model.addAttribute("error", "Invalid username and password");
+		if (logout != null)
+			model.addAttribute("logout", "You have logged out successfully");
 		return "login";
 	}
 

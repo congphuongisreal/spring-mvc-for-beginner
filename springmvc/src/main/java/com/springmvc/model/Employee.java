@@ -48,7 +48,7 @@ public class Employee implements Serializable {
 	@NotNull(message = "Job not null")
 	private Job job;
 
-	@OneToOne(fetch = FetchType.LAZY,mappedBy = "employee")
+	@OneToOne(fetch = FetchType.LAZY)
 	private PurchaseInvoice purchaseInvoice;
 
 	@OneToOne(mappedBy = "employee",fetch = FetchType.LAZY)

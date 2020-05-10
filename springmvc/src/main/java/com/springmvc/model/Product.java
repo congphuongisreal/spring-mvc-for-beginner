@@ -24,6 +24,7 @@ public class Product implements Serializable {
 	private String name;
 
 	@Column(name = "entry_price")
+	@Min(1000)
 	private int entryPrice;
 
 	@OneToOne
@@ -32,8 +33,7 @@ public class Product implements Serializable {
 	private Type type;
 
 	@NotNull(message="Please input number")
-	@Min(1000)
-	@Pattern(regexp = "^[0-9]$")
+	@Min(1)
 	private int number;
 
 	private String color;

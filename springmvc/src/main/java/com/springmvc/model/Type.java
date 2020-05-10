@@ -1,9 +1,12 @@
 package com.springmvc.model;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.validation.constraints.NotNull;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @Entity
@@ -17,7 +20,8 @@ public class Type implements Serializable {
 	@Column(name = "id")
 	private long typeId;
 
-	@NotNull(message = "Please input name")
+	@NotEmpty(message = "Please input name")
+	@Size(min = 1 ,message = "Name not valid")
 	private String name;
 
 	public long getTypeId() {

@@ -31,7 +31,7 @@ public class Provider implements Serializable {
 	private String email;
 	private String address;
 
-	@OneToOne(mappedBy = "purchaseInvoice")
+	@OneToOne
 	private PurchaseInvoice purchaseInvoice;
 
 	public PurchaseInvoice getPurchaseInvoice() {
