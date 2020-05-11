@@ -61,7 +61,7 @@
                                     <i class="metismenu-icon"></i><spring:message code="product"/>
                                 </a>
                             </li>
-                            <li>v
+                            <li>
                                 <a href="<c:url value="/invoice" />" ${active_invoice}>
                                     <i class="metismenu-icon fas fa-shopcart"></i>
                                     <spring:message code="invoice"/>

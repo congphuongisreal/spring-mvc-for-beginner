@@ -15,6 +15,7 @@
           content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"/>
     <link rel="stylesheet" href="<c:url value="/resource/main.css"/>"/>
     <link rel="stylesheet" href="<c:url value="/resource/css/mycss.css"/>"/>
+
 </head>
 <body>
 <div class="app-container app-theme-white body-tabs-line fixed-sidebar fixed-header">
@@ -105,9 +106,10 @@
                                                         placeholder="Type..." class="form-control"
                                                         readonly="${readonly}"
                                                         path="type.typeId"></form:input>
+                                            <form:errors path="type" cssClass="error"/>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-3">
                                         <div class="position-relative form-group">
                                             <label class="mr-sm-2" for="name"><spring:message
                                                     code="price"/></label>
@@ -115,11 +117,11 @@
                                                         placeholder="Price..." class="form-control"
                                                         readonly="${readonly}"
                                                         path="price"></form:input>
+                                            <form:errors path="price" cssClass="error"/>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-row">
-                                    <div class="col-lg-2">
+                                    <div class="col-lg-3">
                                         <div class="position-relative form-group">
                                             <label class="mr-sm-2" for="name"><spring:message
                                                     code="entryPrice"/></label>
@@ -127,9 +129,11 @@
                                                         placeholder="Entry Price..." class="form-control"
                                                         readonly="${readonly}"
                                                         path="entryPrice"></form:input>
+                                            <form:errors path="entryPrice" cssClass="error"/>
                                         </div>
                                     </div>
-                                    <div class="col-lg-2">
+                                <div class="form-row">
+                                <div class="col-lg-4">
                                         <div class="position-relative form-group">
                                             <label class="mr-sm-2" for="productImage"><spring:message
                                                     code="productImage"/></label>

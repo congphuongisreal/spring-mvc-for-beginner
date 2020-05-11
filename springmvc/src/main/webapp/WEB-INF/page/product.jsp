@@ -96,7 +96,7 @@
                                                                 <div class="widget-content-left mr-3">
                                                                     <div class="widget-content-left">
                                                                         <img width="40" class="rounded-circle"
-                                                                             src="<c:url value ="resource/assets/images/avatars/${product.productId}.jpg"/>"
+                                                                             src="<c:url value ="resource/assets/images/avatars/${product.productId}.jpg"/>"/>
                                                                     </div>
                                                                 </div>
                                                                 <div class="widget-content-left flex2">
@@ -290,7 +290,7 @@
                                     <form:input type="text"
                                                 placeholder="Type..." class="form-control"
                                                 path="type.typeId"></form:input>
-                                    <form:errors cssClass="error" path="type"/>
+                                    <form:errors cssClass="error" path="type.typeId"/>
                                 </div>
                             </div>
                             <div class="col-lg-3">
@@ -309,7 +309,7 @@
                                     <form:input type="text"
                                                 placeholder="Price..." class="form-control"
                                                 path="price"></form:input>
-                                    <form:errors cssClass="error" path="price"/>
+                                    <form:errors  path="price" cssClass="error"/>
                                 </div>
                             </div>
                             <div class="col-lg-3">
@@ -319,6 +319,7 @@
                                     <form:input type="text"
                                                 placeholder="Entry Price..." class="form-control"
                                                 path="entryPrice"></form:input>
+                                    <form:errors path="entryPrice" cssClass="error"/>
                                 </div>
                             </div>
                         </div>

@@ -15,11 +15,7 @@
           content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"/>
     <link rel="stylesheet" href="<c:url value="/resource/main.css"/>"/>
     <link rel="stylesheet" href="<c:url value="/resource/css/mycss.css"/>"/>
-    <style>
-        .error{
-            color :red;
-        }
-    </style>
+
 </head>
 <body>
 <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">

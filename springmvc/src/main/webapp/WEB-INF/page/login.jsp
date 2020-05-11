@@ -29,8 +29,11 @@
                                 <h3 class="text-center font-weight-light my-4">
                                     <spring:message code="login"/>
                                 </h3>
-                                <c:if test="${not empty invalid}">
-                                    <h6 style="color:red;text-align: center;">${invalid}</h6>
+                                <c:if test="${not empty error}">
+                                    <h6 style="color:red;text-align: center;">${error}</h6>
+                                </c:if>
+                                <c:if test="${not empty logout}">
+                                    <h6 style="color:red;text-align: center;">${logout}</h6>
                                 </c:if>
                             </div>
                             <div class="card-body">
