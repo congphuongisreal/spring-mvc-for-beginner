@@ -1,6 +1,8 @@
 package com.springmvc.model;
 
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -17,9 +19,11 @@ public class PurchaseInvoice implements Serializable {
 	private long purchaseInvoiceId;
 
 	@OneToOne
+	@NotEmpty
 	private Employee employee;
 
 	@OneToOne
+	@NotEmpty
 	private Provider provider;
 
 	@OneToMany

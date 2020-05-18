@@ -1,5 +1,7 @@
 package com.springmvc.model;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.validation.constraints.NotNull;
 
 
@@ -27,7 +29,7 @@ public class Role implements Serializable {
 	@GeneratedValue(strategy =  GenerationType.IDENTITY)
 	private long roleId;
 
-	@NotNull(message = "Please input name")
+	@NotEmpty
 	private String name;
 
 	public String getName() {

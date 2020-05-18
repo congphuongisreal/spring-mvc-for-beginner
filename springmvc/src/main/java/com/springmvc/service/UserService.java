@@ -26,4 +26,6 @@ public interface UserService {
 	public Role getRoleById(long roleId);
 
 	public List<Role> getAllRole();
+
+	public boolean isUserNameAlreadyInUse(String userName);
 }

@@ -35,6 +35,10 @@
                         </div>
                     </div>
                 </div>
+                <c:if test="${success == 1}">
+                    <div class="alert alert-danger fade show" >
+                        <span class="fas fa-exclamation-triangle"> <spring:message code="notSuccess"/></span> </div>
+                </c:if>
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="main-card mb-3 card">
@@ -154,6 +158,7 @@
                                     <label for="dob" class=""><spring:message code="dob"/></label>
                                     <form:input type="date" class="form-control"
                                                 path="dob"></form:input>
+                                    <form:errors path="dob" cssClass="error"/>
                                 </div>
                             </div>
                             <div class="col-lg-8">
@@ -176,3 +181,6 @@
         </div>
     </div>
 </div>
+
+
+

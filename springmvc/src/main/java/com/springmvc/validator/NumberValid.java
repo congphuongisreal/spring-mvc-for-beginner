@@ -16,7 +16,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Target({ElementType.FIELD, ElementType.METHOD})
 public @interface NumberValid {
 
-	String message() default "Incorrect number";
+	String message() default "This is not number";
 
 	Class<?>[] groups() default {};
 

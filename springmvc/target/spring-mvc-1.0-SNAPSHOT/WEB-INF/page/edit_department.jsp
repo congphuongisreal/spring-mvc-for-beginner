@@ -48,6 +48,7 @@
                                             <form:input type="text"
                                                         placeholder="Name Department..." class="form-control" readonly="${readonly}"
                                                         path="name"></form:input>
+                                            <form:errors cssClass="error" path="name"/>
                                         </div>
                                     </div>
                                 </div>

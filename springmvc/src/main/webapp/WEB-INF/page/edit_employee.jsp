@@ -48,6 +48,7 @@
                                                         placeholder="Name Employee..." class="form-control"
                                                         readonly="${readonly}"
                                                         path="name"></form:input>
+                                            <form:errors path="name" cssClass="error"/>
                                         </div>
                                     </div>
                                 </div>
@@ -60,6 +61,7 @@
                                                         placeholder="Phone Number..." class="form-control"
                                                         readonly="${readonly}"
                                                         path="phoneNumber"></form:input>
+                                            <form:errors path="phoneNumber" cssClass="error"/>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -69,6 +71,7 @@
                                             <form:input type="date"
                                                         class="form-control" readonly="${readonly}"
                                                         path="dob"></form:input>
+                                            <form:errors path="dob" cssClass="error"/>
                                         </div>
                                     </div>
                                 </div>
@@ -81,6 +84,7 @@
                                                         placeholder="Email..." class="form-control"
                                                         readonly="${readonly}"
                                                         path="email"></form:input>
+                                            <form:errors path="email" cssClass="error"/>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -103,6 +107,7 @@
                                                         placeholder="Department..." class="form-control"
                                                         readonly="${readonly}"
                                                         path="department.departmentId"></form:input>
+                                            <form:errors path="department" cssClass="error"/>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -113,6 +118,7 @@
                                                         placeholder="Job..." class="form-control"
                                                         readonly="${readonly}"
                                                         path="job.jobId"></form:input>
+                                            <form:errors path="job" cssClass="error"/>
                                         </div>
                                     </div>
                                 </div>

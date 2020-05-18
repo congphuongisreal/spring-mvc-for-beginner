@@ -20,8 +20,7 @@ public class Type implements Serializable {
 	@Column(name = "id")
 	private long typeId;
 
-	@NotEmpty(message = "Please input name")
-	@Size(min = 1 ,message = "Name not valid")
+	@NotEmpty
 	private String name;
 
 	public long getTypeId() {

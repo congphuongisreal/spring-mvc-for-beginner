@@ -34,6 +34,10 @@
                         </div>
                     </div>
                 </div>
+                <c:if test="${success == 1}">
+                    <div class="alert alert-danger fade show" >
+                        <span class="fas fa-exclamation-triangle"> <spring:message code="notSuccess"/></span> </div>
+                </c:if>
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="main-card mb-3 card">
@@ -149,7 +153,6 @@
                                     <form:input type="text"
                                                 class="form-control"
                                                 path="department.departmentId"></form:input>
-                                    <form:errors path="department" cssClass="error"/>
                                 </div>
                             </div>
                             <div class="col-lg-3">
@@ -158,7 +161,6 @@
                                     <form:input type="text"
                                                 class="form-control"
                                                 path="job.jobId"></form:input>
-                                    <form:errors path="job" cssClass="error"/>
                                 </div>
                             </div>
                         </div>

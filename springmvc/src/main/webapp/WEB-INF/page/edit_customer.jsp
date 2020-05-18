@@ -48,6 +48,7 @@
                                                         placeholder="Name Customer..." class="form-control"
                                                         readonly="${readonly}"
                                                         path="name"></form:input>
+                                            <form:errors path="name" cssClass="error"/>
                                         </div>
                                     </div>
                                 </div>
@@ -60,6 +61,7 @@
                                                         placeholder="Phone Number..." class="form-control"
                                                         readonly="${readonly}"
                                                         path="phoneNumber"></form:input>
+                                            <form:errors path="phoneNumber" cssClass="error"/>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -69,6 +71,7 @@
                                             <form:input type="date"
                                                         class="form-control" readonly="${readonly}"
                                                         path="dob"></form:input>
+                                            <form:errors path="dob" cssClass="error"/>
                                         </div>
                                     </div>
                                 </div>
@@ -81,6 +84,7 @@
                                                         placeholder="Email..." class="form-control"
                                                         readonly="${readonly}"
                                                         path="email"></form:input>
+                                            <form:errors path="email" cssClass="error"/>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -99,7 +103,7 @@
                         <div class="modal-footer">
                             <a href="<c:url value="/customer" />" type="button" class="btn btn-secondary">
                                 <spring:message code="close"/></a>
-                            <c:if test="${check  == 1}">
+                            <c:if test="${check  != 1}">
                                 <button type="submit" class="btn btn-primary"><spring:message code="update"/></button>
                             </c:if>
                         </div>

@@ -1,14 +1,13 @@
 package com.springmvc.model;
 
-import org.hibernate.validator.constraints.Email;
-import org.springframework.format.annotation.DateTimeFormat;
+import com.springmvc.validator.EmailValid;
+import com.springmvc.validator.NameValid;
+import com.springmvc.validator.PhoneNumberValid;
+import org.hibernate.validator.constraints.NotEmpty;
 
-import javax.validation.constraints.NotNull;
 
 
 import javax.persistence.*;
-import javax.validation.constraints.Past;
-import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 
 @Entity
@@ -22,30 +21,31 @@ public class Employee implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long employeeId;
 
-	@NotNull(message = "Name not null")
+	@NotEmpty
+	@NameValid
 	private String name;
 
 	@Column(name = "phone_number")
-	@Pattern(regexp = "^[0-9]{10}$")
+	@PhoneNumberValid
 	private String phoneNumber;
 
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@NotEmpty
 	private String dob;
 	private String gender;
 	private String address;
 
-	@Email(message = "Not valid! Please input email valid")
+	@NotEmpty
+	@EmailValid
 	private String email;
+
 	private boolean enable;
 
 	@ManyToOne
 	@JoinColumn(name = "employee_department")
-	@NotNull(message = "Department not null")
 	private Department department;
 
 	@ManyToOne
 	@JoinColumn(name = "employee_job")
-	@NotNull(message = "Job not null")
 	private Job job;
 
 	@OneToOne(fetch = FetchType.LAZY)

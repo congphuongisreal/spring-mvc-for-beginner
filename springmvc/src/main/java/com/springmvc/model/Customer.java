@@ -1,11 +1,14 @@
 package com.springmvc.model;
 
+import com.springmvc.validator.EmailValid;
+import com.springmvc.validator.NameValid;
+import com.springmvc.validator.PhoneNumberValid;
 import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotNull;
 import javax.persistence.*;
-import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 
 @Entity
@@ -19,22 +22,25 @@ public class Customer implements Serializable {
 	@Column(name = "id")
 	private long customerId;
 
+	@NameValid
+	@NotEmpty
+	private String name;
+
 	@OneToOne(mappedBy = "customer", fetch = FetchType.LAZY)
 	private SaleInvoice saleInvoice;
 
 	@Column(name = "phone_number")
-	@Pattern(regexp = "^[0-9]{10}$")
+	@PhoneNumberValid
+	@NotEmpty
 	private String phoneNumber;
 
-	@NotNull(message = "Not Null")
-	private String name;
-
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@NotEmpty
 	private String dob;
 
 	private String address;
 
-	@Email(message = "Invalid email! Please enter valid email")
+	@EmailValid
+	@NotEmpty
 	private String email;
 
 	public SaleInvoice getSaleInvoice() {

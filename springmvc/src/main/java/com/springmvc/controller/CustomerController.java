@@ -8,6 +8,7 @@ import com.springmvc.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +24,7 @@ public class CustomerController {
 
 	@Autowired
 	private UserService userService;
+
 	@RequestMapping(value = "/customer", method = RequestMethod.GET)
 	public String sayCustomer(Model model) {
 		model.addAttribute("customer", new Customer());
@@ -31,9 +33,14 @@ public class CustomerController {
 		return "customer";
 	}
 
-
 	@RequestMapping(value = "/customer/add",method = RequestMethod.POST)
-	public String addCustomer(@Valid @ModelAttribute(value = "customer") Customer customer) {
+	public String addCustomer(@Valid @ModelAttribute(value = "customer") Customer customer, BindingResult result,Model model) {
+		if(result.hasErrors()) {
+			model.addAttribute("active_customer", "class=\"mm-active\"");
+			model.addAttribute("customers", customerService.getAllCustomer());
+			model.addAttribute("success",1);
+			return "customer";
+		}
 		customerService.addCustomer(customer);
 
 		Role role = new Role("CUSTOMER");
@@ -48,7 +55,6 @@ public class CustomerController {
 		Customer customer = customerService.getCustomerById(customerId);
 		model.addAttribute("active_customer","\"class=\\\"mm-active\\\"\"");
 		model.addAttribute("customerObj",customer);
-		model.addAttribute("check",1);
 		return "edit_customer";
 	}
 
@@ -59,7 +65,9 @@ public class CustomerController {
 	}
 
 	@RequestMapping(value = "/customer/update", method = RequestMethod.POST)
-	public String updateCustomer(@ModelAttribute(value = "customerObj") Customer customer) {
+	public String updateCustomer(@Valid @ModelAttribute(value = "customerObj") Customer customer,BindingResult result) {
+		if(result.hasErrors())
+			return "edit_customer";
 		customerService.updateCustomer(customer);
 		return "redirect:/customer";
 	}
@@ -70,6 +78,7 @@ public class CustomerController {
 		model.addAttribute("customerObj",customer);
 		model.addAttribute("active_customer","\"class=\\\"mm-active\\\"\"");
 		model.addAttribute("readonly","true");
+		model.addAttribute("check",1);
 		return "edit_customer";
 	}
 }

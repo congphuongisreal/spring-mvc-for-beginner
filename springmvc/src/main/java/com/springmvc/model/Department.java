@@ -1,5 +1,8 @@
 package com.springmvc.model;
 
+import com.springmvc.validator.NameValid;
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
@@ -16,7 +19,7 @@ public class Department implements Serializable {
 	@Column(name = "id")
 	private long departmentId;
 
-	@NotNull(message = "Name not null")
+	@NotEmpty
 	private String name;
 
 	private boolean enable;

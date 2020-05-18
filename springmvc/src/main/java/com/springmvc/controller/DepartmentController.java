@@ -6,6 +6,7 @@ import com.springmvc.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,16 +23,25 @@ public class DepartmentController {
 
 	@RequestMapping(value = "/department", method = RequestMethod.GET)
 	public String sayDepartment(Model model) {
+		department(model);
+		return "department";
+	}
+
+	public void department(Model model){
 		model.addAttribute("departmentObj", new Department());
 		model.addAttribute("jobObj", new Job());
 		model.addAttribute("active_department", "class=\"mm-active\"");
 		model.addAttribute("jobs", departmentService.getAllJob());
 		model.addAttribute("departments", departmentService.getAllDepartment());
-		return "department";
 	}
 
 	@RequestMapping(value = "/department/add", method = RequestMethod.POST)
-	public String addDepartment(@Valid @ModelAttribute(value = "department") Department department) {
+	public String addDepartment(@Valid @ModelAttribute(value = "department") Department department,BindingResult result,Model model) {
+		if(result.hasErrors()){
+			model.addAttribute("success",1);
+			department(model);
+			return "department";
+		}
 		departmentService.addDepartment(department);
 		return "redirect:/department";
 	}
@@ -43,7 +53,9 @@ public class DepartmentController {
 	}
 
 	@RequestMapping(value = "/department/update", method = RequestMethod.POST)
-	public String updateDepartment(@ModelAttribute(value = "departmentObj") Department department) {
+	public String updateDepartment(@Valid @ModelAttribute(value = "departmentObj") Department department,BindingResult result) {
+		if(result.hasErrors())
+			return "edit_department";
 		departmentService.updateDepartment(department);
 		return "redirect:/department";
 	}
@@ -61,7 +73,12 @@ public class DepartmentController {
 	}
 
 	@RequestMapping(value = "/job/add", method = RequestMethod.POST)
-	public String addJob(@Valid @ModelAttribute(value = "jobObj") Job job) {
+	public String addJob(@Valid @ModelAttribute(value = "jobObj") Job job, BindingResult result,Model model) {
+		if(result.hasErrors()){
+			department(model);
+			model.addAttribute("success",1);
+			return "department";
+		}
 		departmentService.addJob(job);
 		return "redirect:/department";
 	}
@@ -73,7 +90,9 @@ public class DepartmentController {
 	}
 
 	@RequestMapping(value = "/job/update", method = RequestMethod.POST)
-	public String updateJob(@ModelAttribute(value = "jobObj") Job job) {
+	public String updateJob(@Valid @ModelAttribute(value = "jobObj") Job job,BindingResult result) {
+		if(result.hasErrors())
+			return "edit_job";
 		departmentService.updateJob(job);
 		return "redirect:/department";
 	}

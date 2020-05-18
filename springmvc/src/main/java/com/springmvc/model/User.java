@@ -1,5 +1,8 @@
 package com.springmvc.model;
 
+import com.springmvc.validator.PasswordValid;
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -12,6 +15,26 @@ public class User implements Serializable {
 
 	private static final long serialVersionUID = 382759201829390123L;
 
+	@Id
+	@Column(name = "id")
+	@GeneratedValue(strategy =  GenerationType.IDENTITY)
+	private long userId;
+
+	@NotEmpty
+	@Column(name = "user_name")
+	private String userName;
+
+	@NotEmpty
+	@PasswordValid
+	private String password;
+
+	private boolean enable;
+
+	@OneToOne
+	@JoinColumn(name = "role_users")
+	@NotEmpty
+	private Role role;
+
 	public User(String userName, String password,Role role) {
 		this.userName = userName;
 		this.password = password;
@@ -22,22 +45,6 @@ public class User implements Serializable {
 
 	}
 
-	@Id
-	@Column(name = "id")
-	@GeneratedValue(strategy =  GenerationType.IDENTITY)
-	private long userId;
-
-	@NotNull(message = "Please input user name")
-	@Column(name = "user_name")
-	private String userName;
-
-	@NotNull(message = "Please input password")
-	private String password;
-	private boolean enable;
-
-	@OneToOne
-	@JoinColumn(name = "role_users")
-	private Role role;
 
 	public Role getRole() {
 		return role;

@@ -7,12 +7,14 @@ import com.springmvc.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.naming.Binding;
 import javax.validation.Valid;
 
 @Controller
@@ -34,13 +36,22 @@ public class EmployeeController {
 	}
 
 	@RequestMapping(value = "/employee/add", method = RequestMethod.POST)
-	public String addEmployee(@Valid @ModelAttribute(value = "employee") Employee employee) {
+	public String addEmployee(@Valid @ModelAttribute(value = "employee") Employee employee, BindingResult result,Model model) {
+	if(result.hasErrors())
+	{
+		model.addAttribute("success",1);
+		model.addAttribute("active_employee", "class=\"mm-active\"");
+		model.addAttribute("employees", this.employeeService.getAllEmployee());
+		return "employee";
+	}
 		employeeService.addEmployee(employee);
 
-		Role role = new Role("EMPLOYEE");
-		User user = new User(employee.getEmail(), employee.getEmail(), role);
 
-		userService.addUser(user);
+
+//		Role role = new Role("EMPLOYEE");
+//		User user = new User(employee.getEmail(), employee.getEmail(), role);
+//
+//		userService.addUser(user);
 		return "redirect:/employee";
 	}
 
@@ -51,7 +62,10 @@ public class EmployeeController {
 	}
 
 	@RequestMapping(value = "/employee/update", method = RequestMethod.POST)
-	public String updateEmployee(@ModelAttribute(value = "employeeObj") Employee employee) {
+	public String updateEmployee(@Valid @ModelAttribute(value = "employeeObj") Employee employee, BindingResult result) {
+		if (result.hasErrors())
+			return "edit_employee";
+
 		employeeService.updateEmployee(employee);
 		return "redirect:/employee";
 	}

@@ -1,5 +1,9 @@
 package com.springmvc.model;
+import com.springmvc.validator.EmailValid;
+import com.springmvc.validator.NameValid;
+import com.springmvc.validator.PhoneNumberValid;
 import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.constraints.NotNull;
 
@@ -20,14 +24,15 @@ public class Provider implements Serializable {
 	@Column(name = "id")
 	private long providerId;
 
-	@NotNull(message = "Please input name")
+	@NotEmpty
+	@NameValid
 	private String name;
 
 	@Column(name ="phone_number")
-	@Pattern(regexp = "^[0-9]{10}$")
+	@PhoneNumberValid
 	private String phoneNumber;
 
-	@Email(message = "Email not valid. Please input email valid!")
+	@EmailValid
 	private String email;
 	private String address;
 

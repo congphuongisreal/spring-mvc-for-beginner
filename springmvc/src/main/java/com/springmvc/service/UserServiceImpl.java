@@ -6,6 +6,7 @@ import com.springmvc.model.Role;
 import com.springmvc.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -70,6 +71,15 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<Role> getAllRole() {
 		return roleDao.getAllRole();
+	}
+
+	@Override
+	@Transactional
+	public boolean isUserNameAlreadyInUse(String userName){
+		boolean userInUse = true;
+		if(userDao.getActiveUser(userName) == null)
+			userInUse = false;
+		return userInUse;
 	}
 
 }

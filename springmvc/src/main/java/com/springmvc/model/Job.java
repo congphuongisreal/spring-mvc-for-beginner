@@ -1,5 +1,7 @@
 package com.springmvc.model;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -18,12 +20,12 @@ public class Job implements Serializable {
 	@Column(name = "id")
 	private long jobId;
 
-	@NotNull(message = "Name not null")
+	@NotEmpty
 	private String name;
 
 	private boolean enable;
 
-	@OneToMany(mappedBy = "job",fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "job", fetch = FetchType.LAZY)
 	private List<Employee> employees;
 
 	public List<Employee> getEmployees() {

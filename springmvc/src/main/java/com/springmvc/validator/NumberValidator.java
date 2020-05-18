@@ -15,8 +15,6 @@ public class NumberValidator implements ConstraintValidator<NumberValid,String>{
 
 	@Override
 	public boolean isValid(String number, ConstraintValidatorContext constraintValidatorContext) {
-		if(number == null)
-			return false;
-		return number.matches("\\d{10}");
+		return number.matches("^[1-9]\\d*$");
 	}
 }

@@ -1,4 +1,6 @@
 package com.springmvc.model;
+import com.springmvc.validator.NumberValid;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.constraints.Min;
@@ -20,7 +22,7 @@ public class Product implements Serializable {
 	@Column(name = "id")
 	private long productId;
 
-	@NotNull(message = "Name not null")
+	@NotEmpty
 	private String name;
 
 	@Column(name = "entry_price")
@@ -32,7 +34,8 @@ public class Product implements Serializable {
 	@NotNull(message = "Type not null")
 	private Type type;
 
-	@NotNull(message="Please input number")
+	@NumberValid
+	@NotEmpty
 	@Min(1)
 	private int number;
 
@@ -40,7 +43,8 @@ public class Product implements Serializable {
 
 	private String size;
 
-	@NotNull(message = "Please input price")
+	@NumberValid
+	@NotEmpty
 	@Min(1000)
 	private int price;
 	private String unit;
